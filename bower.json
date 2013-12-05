@@ -1,0 +1,23 @@
+{
+  "name": "Blackjack",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sarchila/2013-11-blackjack",
+  "authors": [
+    "Santiago Archila",
+    "Dan Chao"
+  ],
+  "description": "Blackjack Game",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.3.11"
+  }
+}

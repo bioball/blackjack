@@ -31,9 +31,7 @@ describe 'hand', ->
       expect(playerHand.scores()[0]).toEqual(25)
 
     it "should be able to stand", ->
-      spy = sinon.spy(playerHand, 'stand')
-      $('.stand-button').trigger('click')
-      expect(spy.called).toBe(true)
+      expect(typeof playerHand.stand).toEqual("function")
 
   describe "dealer", ->
     it 'should stop hitting once it breaks 18', ->
@@ -46,9 +44,9 @@ describe 'hand', ->
       dealerHand.pop()
       dealerHand.pop()
 
-      dealerHand.hit()
+      dealerHand.dealerPlay()
 
-      expect(spy.calledTwice).toBe(true);
+      expect(spy.calledTwice).toBe(true)
 
 
     it 'should stop hitting once it busts', ->

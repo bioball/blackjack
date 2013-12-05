@@ -5,18 +5,8 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
-    if @isDealer
-      if @scores()[1] and @scores()[1] >= 17 and @scores()[1] <= 21
-        @stand()
-      else if @scores()[0] <= 17
-        @add(@deck.pop()).last()
-        if @scores()[0] > 21 then @bust()
-        else @hit()
-      else
-        @stand()
-    else
-      @add(@deck.pop()).last()
-      if @scores()[0] > 21 then @bust()
+    @add(@deck.pop())
+    if @scores()[0] > 21 then @bust()
     @last()
 
   bust: ->
@@ -36,3 +26,12 @@ class window.Hand extends Backbone.Collection
       score + if card.get 'revealed' then card.get 'value' else 0
     , 0
     if hasAce then [score, score + 10] else [score]
+
+  dealerPlay: ->
+    if (@scores()[0] >= 17 && @scores()[0] <= 21) or (@scores()[1] >= 17 && @scores()[1] <= 21)
+      @stand()
+    else if @scores()[0] > 21
+      return
+    else
+      @hit()
+      @dealerPlay()
