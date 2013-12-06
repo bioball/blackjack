@@ -11,7 +11,7 @@ class window.CardView extends Backbone.View
   render: ->
     @$el.children().detach().end().html
     if !@model.get 'revealed'
-      @$el.html @template rankName: 'card', suitName: 'back'
+      @$el.html @template rankName: 'card', suitName: 'hackreactor'
     else
       @$el.html @template @model.attributes
     # @$el.addClass 'covered' unless @model.get 'revealed'

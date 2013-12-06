@@ -3,8 +3,17 @@ class window.App extends Backbone.Model
 
   initialize: ->
     @set 'deck', deck = new Deck()
-    @set 'playerHand', deck.dealPlayer()
-    @set 'dealerHand', deck.dealDealer()
+    @set 'bank', 50000
+    @set 'pot', 0
+    @set 'playerHand', @get('deck').dealPlayer()
+    @set 'dealerHand', @get('deck').dealDealer()
+
+  beforeGame: ->
+    @set 'playerHand', @get('deck').dealPlayer()
+    @set 'dealerHand', @get('deck').dealDealer()
+    @startGame()
+
+  startGame: ->
     @get('playerHand').on 'stand', =>
       @get('dealerHand').at(0).set('revealed', true)
       @get('dealerHand').dealerPlay()

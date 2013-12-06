@@ -31,7 +31,7 @@ body {
 .dealer-hand-container {
   max-width: 1000px;
   margin: auto;
-  padding-top: 100px;
+  padding-top: 60px;
 }
 .button-container{
   font-family: Helvetica;
@@ -89,8 +89,15 @@ button:hover {
   font-style: italic;
   font-size: 10em;
   text-align: center;
-  color: #E35836;
   text-shadow: 4px 4px 10px black;
+}
+
+.losetext {
+  color: #E35836;
+}
+
+.wintext {
+  color: #C8E882;
 }
 
 .endgametext button {
