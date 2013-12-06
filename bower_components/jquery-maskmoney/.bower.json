@@ -1,0 +1,15 @@
+{
+  "name": "jquery-maskmoney",
+  "homepage": "https://github.com/plentz/jquery-maskmoney",
+  "version": "2.1.2",
+  "_release": "2.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.1.2",
+    "commit": "c2709ff1dcfd899cf16342f5b76e563cf7442de4"
+  },
+  "_source": "git://github.com/plentz/jquery-maskmoney.git",
+  "_target": "~2.1.2",
+  "_originalSource": "jquery-maskmoney",
+  "_direct": true
+}

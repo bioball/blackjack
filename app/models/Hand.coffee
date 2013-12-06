@@ -5,7 +5,9 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
+    if !@deck.length then @deck.initialize()
     @add(@deck.pop())
+    console.log("someone hit. deck is: ", @deck.length)
     if @scores()[0] > 21 then @bust()
     @last()
 
@@ -20,10 +22,8 @@ class window.Hand extends Backbone.Collection
     # Usually, that array contains one element. That is the only score.
     # when there is an ace, it offers you two scores - the original score, and score + 10.
     hasAce = @reduce (memo, card) ->
-      memo or ((card.get 'value' is 1) and (card.get 'revealed') )
+      memo or ((card.get('value') is 1) and (card.get('revealed')))
     , false
-    console.log @toJSON()[0], @toJSON()[1]
-    debugger
     score = @reduce (score, card) ->
       score + if card.get 'revealed' then card.get 'value' else 0
     , 0

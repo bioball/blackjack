@@ -32,7 +32,7 @@ body {
   max-width: 1000px;
   margin: auto;
   padding-top: 60px;
-  padding-bottom: 60px;
+  padding-bottom: 120px;
 }
 .button-container{
   font-family: Helvetica;
@@ -111,4 +111,43 @@ button:hover {
 .endgametext button:hover {
   background-color: #FC8568;
   border: 1px solid #FC8568;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.logo {
+  color: white;
+  font-family: 'Helvetica Neue';
+  text-transform: uppercase;
+  font-weight: 200;
+  left: 15px;
+  font-size: 3em;
+  top: 14px;
+  position: absolute;
+}
+
+.money {
+  color: white;
+  font-family: 'Helvetica';
+  position: absolute;
+  right: 15px;
+  top: 30px;
+  font-size: 2em;
+}
+
+input {
+  height: 38px;
+  width: 128px;
+  background-color: white;
+  font-size: 1em;
+  padding-left: 10px;
+  font-family: "Helvetica";
+  font-weight: 600;
 }
