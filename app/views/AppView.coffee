@@ -17,6 +17,7 @@ class window.AppView extends Backbone.View
     @model.beforeGame()
     @render()
     self = @
+    @$el.find('.betfield').maskMoney(symbol: '$', precision: 0)
     @$el.find('.submit').on('click', -> self.bet() )
     @model.on 'dealerwin', => @endGame('lose')
     @model.on 'playerwin', => @endGame('win')
