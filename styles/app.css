@@ -32,6 +32,7 @@ body {
   max-width: 1000px;
   margin: auto;
   padding-top: 60px;
+  padding-bottom: 60px;
 }
 .button-container{
   font-family: Helvetica;

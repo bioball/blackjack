@@ -1,7 +1,10 @@
 class window.AppView extends Backbone.View
 
   template: _.template '
-    <div class="button-container"><button class="hit-button">Hit</button> <button class="stand-button">Stand</button></div>
+    <div class="button-container">
+      <button class="hit-button">Hit</button>
+      <button class="stand-button">Stand</button>
+    </div>
     <div class="player-hand-container"></div>
     <div class="dealer-hand-container"></div>
   '
@@ -9,9 +12,6 @@ class window.AppView extends Backbone.View
   events:
     "click .hit-button": -> @model.get('playerHand').hit()
     "click .stand-button": -> @model.get('playerHand').stand()
-    "click .playagain": ->
-      $('body').html('')
-      new AppView(model: new App()).$el.appendTo 'body'
 
   initialize: ->
     @model.beforeGame()
@@ -27,8 +27,12 @@ class window.AppView extends Backbone.View
     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealerHand').el
 
   playAgain: ->
-    $('body').html('')
-    new AppView(model: new App()).$el.appendTo 'body'
+    $('.endgame').remove()
+    $('.endgametext').remove()
+    @model.beforeGame()
+    @model.off()
+    new AppView(model: @model).$el.appendTo 'body'
+    $('html, body').animate(scrollTop: $(document).height(), 'slow')
 
   endGame: (context) ->
     $('.button-container').html('')
